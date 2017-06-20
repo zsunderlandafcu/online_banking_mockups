@@ -107,11 +107,11 @@ footer .lazer {
 }
 .main-content form .input-container {
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
 }
 @media (min-width: 992px) {
     .main-content form .input-container {
-        margin: 0;
+        margin: 0 0 12px;
     }
 }
 .main-content form .btn-group-container {
@@ -197,12 +197,10 @@ a.emphasize-link > .glyphicon {
 
 .align-toggle {
     text-align: center;
-    padding-bottom: 20px;
 }
 @media (min-width: 992px) {
     .align-toggle {
         text-align: left;
-        padding-bottom: 12px;
     }
 }
 
