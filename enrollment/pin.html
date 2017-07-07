@@ -116,12 +116,18 @@
         <script src="../scripts/main.js"></script>
         <script>
             var form = document.getElementById('main-form');
-            Validator(form);
-
-            ////FOR ILLUSTRATION PURPOSES WILL BE DONE BY SERVER
-            if (!window.location.search.includes('invalid')) {
-                console.log('what');
-            }
+            console.log(window.location.search);
+            Validator(form, {
+                then: function () {
+                    ////FOR ILLUSTRATION PURPOSES WILL BE DONE BY SERVER
+                    if (!window.location.search.includes('invalid')) {
+                        console.log(window.location);
+                        window.location = window.location.origin + '/mockups/enrollment/account_number.html?invalid'
+                    } else {
+                        form.submit();
+                    }
+                }
+            });
         </script>
     </body>
 </html>

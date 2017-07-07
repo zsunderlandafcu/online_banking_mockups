@@ -105,9 +105,15 @@ footer .lazer {
         text-align: left;
     }
 }
+.row.space-out {
+    margin-bottom: 40px;
+}
 .main-content form .input-container {
     max-width: 500px;
     margin: 0 auto 20px;
+}
+.main-container form .input-container.fluid {
+    max-width: none;
 }
 @media (min-width: 992px) {
     .main-content form .input-container {

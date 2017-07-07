@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--styles-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!--fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="../styles/styles.css">
+    </head>
+    <body>
+        <header>
+            <a href="https://www.americafirst.com">
+                <img src="../images/logo.png" alt="America First Credit Union" class="logo"/>
+            </a>
+        </header>
+        <section class="main-container container">
+            <div class="main-content">
+                <div class="page-header">
+                    <h1>Security Questions</h1>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="row focus-container">
+                            <div class="col-xs-12 form-container">
+                                <form action="online_statements.html" id="main-form"
+                                    data-error-message="Please provide an answer."
+                                    data-match-error-message="Your answers do not match."
+                                    data-error-class="error-message"
+                                    data-error-input-class="error-input">
+                                    <div class="row space-out">
+                                        <div class="col-xs-12">
+                                            <div class="row">
+                                                <div class="col-xs-12 align-toggle primary-lbl">
+                                                    <label for="question-1">Question 1</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 align-toggle">
+                                                    <div class="input-container fluid">
+                                                        <select name="question-1" id="question-1" class="form-control"
+                                                            data-validate="required,vals:!0"
+                                                            data-error-message="Please select a question.">
+                                                            <option value="0" selected>Please select a question</option>
+                                                            <option value="1">Mother's maiden name</option>
+                                                            <option value="2">The name of your first pet</option>
+                                                            <option value="3">Name of the street you grew up on</option>
+                                                            <option value="3">...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-md-6 align-toggle">
+                                                    <div class="primary-lbl">
+                                                        <label for="answer-1">Enter Answer</label>
+                                                    </div>
+                                                    <div class="input-container">
+                                                        <input type="text" name="answer-1" id="answer-1" class="form-control"
+                                                           data-validate="required">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-md-6 align-toggle">
+                                                    <div class="primary-lbl">
+                                                        <label for="answer-1-confirm">Confirm Answer</label>
+                                                    </div>
+                                                    <div class="input-container">
+                                                        <input type="text" name="answer-1-confirm" id="answer-1-confirm" class="form-control"
+                                                           data-validate="required,match:answer-1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row space-out">
+                                        <div class="col-xs-12">
+                                            <div class="row">
+                                                <div class="col-xs-12 align-toggle primary-lbl">
+                                                    <label for="question-2">Question 2</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 align-toggle">
+                                                    <div class="input-container fluid">
+                                                        <select name="question-2" id="question-2" class="form-control"
+                                                            data-validate="required,vals:!0"
+                                                                data-error-message="Please select a question.">
+                                                            <option value="0" selected>Please select a question</option>
+                                                            <option value="1">Mother's maiden name</option>
+                                                            <option value="2">The name of your first pet</option>
+                                                            <option value="3">Name of the street you grew up on</option>
+                                                            <option value="3">...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-md-6 align-toggle">
+                                                    <div class="primary-lbl">
+                                                        <label for="answer-2">Enter Answer</label>
+                                                    </div>
+                                                    <div class="input-container">
+                                                        <input type="text" name="answer-2" id="answer-2" class="form-control"
+                                                           data-validate="required">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-md-6 align-toggle">
+                                                    <div class="primary-lbl">
+                                                        <label for="answer-2-confirm">Confirm Answer</label>
+                                                    </div>
+                                                    <div class="input-container">
+                                                        <input type="text" name="answer-2-confirm" id="answer-2-confirm" class="form-control"
+                                                           data-validate="required,match:answer-2">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row space-out">
+                                        <div class="col-xs-12">
+                                            <div class="row">
+                                                <div class="col-xs-12 align-toggle primary-lbl">
+                                                    <label for="question-3">Question 3</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 align-toggle">
+                                                    <div class="input-container fluid">
+                                                        <select name="question-3" id="question-3" class="form-control"
+                                                            data-validate="required,vals:!0"
+                                                                data-error-message="Please select a question.">
+                                                            <option value="0" selected>Please select a question</option>
+                                                            <option value="1">Mother's maiden name</option>
+                                                            <option value="2">The name of your first pet</option>
+                                                            <option value="3">Name of the street you grew up on</option>
+                                                            <option value="3">...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-md-6 align-toggle">
+                                                    <div class="primary-lbl">
+                                                        <label for="answer-3">Enter Answer</label>
+                                                    </div>
+                                                    <div class="input-container">
+                                                        <input type="text" name="answer-3" id="answer-3" class="form-control"
+                                                           data-validate="required">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-md-6 align-toggle">
+                                                    <div class="primary-lbl">
+                                                        <label for="answer-3-confirm">Confirm Answer</label>
+                                                    </div>
+                                                    <div class="input-container">
+                                                        <input type="text" name="answer-3-confirm" id="answer-3-confirm" class="form-control"
+                                                           data-validate="required,match:answer-3">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-9">
+                                            <div class="btn-group-container row">
+                                                <div class="col-xs-6 btn-container">
+                                                    <button class="btn btn-success">Next</button>
+                                                </div>
+                                                <div class="col-xs-6 btn-container">
+                                                    <button class="btn btn-default">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="row">
+                <div class="col-xs-12 logo-container">
+                    <div class="lazer"></div>
+                    <img src="../images/eagle-inverse.png" alt="America First Credit Union" class="logo">
+                    <div class="lazer"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-3 img-container">
+                    <img src="../images/ehl.png" alt="Equal Housing Lender">
+                    <img src="../images/ncua.png" alt="NCUA">
+                </div>
+                <div class="col-xs-12 col-md-8 fine-print">
+                    <p>
+                        &copy;2017 America First Credit Union. All Rights Reserved. America First Federal Credit Union
+                        does business as (DBA) America First Credit Union. Unauthorized account access or use is not
+                        permitted and may constitute a crime punishable by law. America First Credit Union respects your
+                        privacy. Please view our <a href="/documents/privacy-policy.pdf">Privacy Policy</a> and
+                        <a href="/documents/marketing-email-opt-out.pdf">Email Opt-Out Procedure</a>.  This credit union
+                        is federally insured by the National Credit Union Administration.
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <script src="../scripts/main.js"></script>
+        <script>
+            var form = document.querySelector('#main-form');
+            Validator(form);
+        </script>
+    </body>
+</html>

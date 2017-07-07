@@ -120,12 +120,20 @@
 		</footer>
 		<script src="../scripts/main.js"></script>
 		<script>
-			Validator(document.getElementById('main-form'));
+            var form = document.getElementById('main-form');
+			Validator(form, {
+			    then: function () {
+                    ////FOR ILLUSTRATION PURPOSES WILL BE DONE BY SERVER
+                    if (window.location.search.includes('invalid')) {
+                        window.location = window.location.origin + '/mockups/enrollment/pin.html?invalid'
+                    }
+                }
+            });
 
-			////FOR ILLUSTRATION PURPOSES WILL BE DONE BY SERVER
             if (window.location.search.includes('invalid')) {
                 document.querySelector('.alert').style.display = '';
             }
+
 		</script>
 	</body>
 </html>

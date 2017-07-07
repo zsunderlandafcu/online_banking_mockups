@@ -12,7 +12,16 @@ function Validator(form, opts) {
             return (new RegExp(p[0])).test(v);
         },
         vals: function (v, p) {
-            return (new RegExp('^('+p.join('|')+')$')).test(v);
+            var val = v.toLowerCase();
+            var vals = [];
+            for (var i = 0; i < p.length; i++) {
+                if (p[i].indexOf('!') !== -1) {
+                    if (val.indexOf(p[0].substr(1)) !== -1) return false;
+                } else {
+                    vals.push(p[i].toLowerCase());
+                }
+            }
+            return !vals.length ? true : (new RegExp('^('+p.join('|')+')$')).test(val);
         },
         number: function (v, p) {
             var n = Number(v);
@@ -36,8 +45,8 @@ function Validator(form, opts) {
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
         },
         date: function (v, p) {
-            DateValidator = opts.dateValidator;
-            dvStr = DateValidator.toString();
+            var DateValidator = opts.dateValidator;
+            var dvStr = DateValidator.toString();
             var result;
             console.time('DateValidator');
             if (dvStr.indexOf('DateValidator') !== -1) {
@@ -64,6 +73,9 @@ function Validator(form, opts) {
                     ? 'https:\/\/(www\.)?'
                     : 'https?:\/\/(www\.)?';
             return (new RegExp(regExStr + '[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)')).test(v);
+        },
+        match: function (v, p) {
+            return v === form.querySelector('#' + p[0]).value;
         }
     };
     var tests = {
@@ -76,7 +88,12 @@ function Validator(form, opts) {
             email: generalTests.email,
             vals: generalTests.vals,
             url: generalTests.url,
-            date: generalTests.date
+            date: generalTests.date,
+            match: generalTests.match
+        },
+        "select-one": {
+            required: generalTests.required,
+            vals: generalTests.vals
         },
         checkbox: {
             required: function() {
@@ -129,17 +146,20 @@ function Validator(form, opts) {
             phone: generalTests.phone,
             email: generalTests.email,
             vals: generalTests.vals,
-            url: generalTests.url
+            url: generalTests.url,
+            match: generalTests.match
         },
         number: {
             required: generalTests.required,
-            range: generalTests.number
+            range: generalTests.number,
+            match: generalTests.match
         },
         password: {
             required: generalTests.required,
             regex: generalTests.regex,
             length: generalTests.length,
-            number: generalTests.number
+            number: generalTests.number,
+            match: generalTests.match
         },
         radio: {
             required: function () {
@@ -154,7 +174,8 @@ function Validator(form, opts) {
             phone: generalTests.phone,
             email: generalTests.email,
             vals: generalTests.vals,
-            url: generalTests.url
+            url: generalTests.url,
+            match: generalTests.match
         }
     };
 
@@ -246,6 +267,11 @@ function Validator(form, opts) {
                 valid = false;
             }
         }
-        if (valid) this.submit();
+        if (valid){
+            if (opts && opts.then) {
+                return opts.then();
+            }
+            return this.submit();
+        }
     });
 }
