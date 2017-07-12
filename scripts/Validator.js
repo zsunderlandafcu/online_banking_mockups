@@ -156,7 +156,6 @@ Validator.prototype.generalTests = {
     number: function (el, p) {
         var n = Number(el.value);
         if (isNaN(n)) return false;
-
         return !p[0]
             ? true
             : p[1]

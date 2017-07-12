@@ -24,7 +24,7 @@
                     <div class="col-xs-12">
                         <div class="row focus-container">
                             <div class="col-xs-12 form-container">
-                                <form action="online_statements.html" id="main-form"
+                                <form action="statement_preferences.html" id="main-form"
                                       data-error-message-phone="Must be a valid phone number."
                                       data-error-message-match="Values do not match."
                                       data-error-message-email="Must be a valid email address."
@@ -132,17 +132,25 @@
                                                     </div>
                                                     <div class="input-container max-width">
                                                         <input type="text" name="zip" id="zip" class="form-control"
-                                                            data-validate="required"
-                                                            data-error-message="Please enter a zip code.">
+                                                            data-validate="required,number,length:5:5"
+                                                            data-error-message="Zip code must be a 5 digit number."
+                                                            data-error-message-required="Please enter a zip code.">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-md-9 hidden-md hidden-lg" id="question-1-nav">
+                                            <div class="row input-details">
+                                                <div class="col-xs-12">
+                                                    <p>
+                                                        Please verify (or add) your contact information.
+                                                    </p>
+                                                </div>
+                                            </div>
                                             <div class="btn-group-container row">
                                                 <div class="col-xs-6 btn-container">
                                                     <button type="button"
-                                                            onclick="togglePages(event, 'question-part-1', 'question-part-2')"
+                                                            onclick="togglePages('question-part-1', 'question-part-2')"
                                                             class="btn btn-success">Next</button>
                                                 </div>
                                                 <div class="col-xs-6 btn-container">
@@ -156,9 +164,11 @@
                                             <div class="row">
                                                 <div class="col-xs-12 col-md-4 align-toggle">
                                                     <div class="primary-lbl">
-                                                        <label for="mobile-phone">Mobile Phone</label>
+                                                        <label for="mobile-phone">
+                                                            Mobile Phone<sup class="reference">1</sup>
+                                                        </label>
                                                     </div>
-                                                    <div class="input-container">
+                                                    <div class="input-container max-width">
                                                         <input type="text" name="mobile-phone" id="mobile-phone" class="form-control"
                                                             data-validate="required,phone"
                                                             data-error-message="Please enter a mobile phone number.">
@@ -185,14 +195,39 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-md-9 hidden-md hidden-lg" id="question-2-nav">
+                                            <div class="row input-details">
+                                                <div class="col-xs-12">
+                                                    <p>
+                                                        Please verify (or add) your contact information.
+                                                    </p>
+                                                </div>
+                                            </div>
                                             <div class="btn-group-container row">
                                                 <div class="col-xs-6 btn-container">
-                                                    <button type="button"
-                                                            onclick="togglePages(event, 'question-part-2', 'question-part-3')"
-                                                            class="btn btn-success">Next</button>
+                                                    <button type="button" class="btn btn-success"
+                                                        onclick="togglePages('question-part-2', 'question-part-3')">
+                                                        Next
+                                                    </button>
                                                 </div>
                                                 <div class="col-xs-6 btn-container">
-                                                    <button type="button" class="btn btn-default">Cancel</button>
+                                                    <button type="button" class="btn btn-default"
+                                                            onclick="togglePages('question-part-2', 'question-part-1', false)">
+                                                        Back
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <p>
+                                                        <small>
+                                                            <ol>
+                                                                <li>
+                                                                    A mobile phone number is required for resetting passwords,
+                                                                    and to receive one-time pass-codes for high-risk transactions.
+                                                                </li>
+                                                            </ol>
+                                                        </small>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -202,7 +237,9 @@
                                             <div class="row">
                                                 <div class="col-xs-12 col-md-6 align-toggle">
                                                     <div class="primary-lbl">
-                                                        <label for="email">Email Address</label>
+                                                        <label for="email">
+                                                            Email Address<sup class="reference">2</sup>
+                                                        </label>
                                                     </div>
                                                     <div class="input-container max-width">
                                                         <input type="text" name="email" id="email" class="form-control"
@@ -223,12 +260,40 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-md-9" id="question-3-nav">
+                                            <div class="row input-details">
+                                                <div class="col-xs-12">
+                                                    <p>
+                                                        Please verify (or add) your contact information.
+                                                    </p>
+                                                </div>
+                                            </div>
                                             <div class="btn-group-container row">
                                                 <div class="col-xs-6 btn-container">
                                                     <button type="submit" class="btn btn-success">Next</button>
                                                 </div>
                                                 <div class="col-xs-6 btn-container">
-                                                    <button type="button" class="btn btn-default">Cancel</button>
+                                                    <button type="button" class="btn btn-default"
+                                                            onclick="togglePages('question-part-3', 'question-part-2', false)">
+                                                        Back
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <p>
+                                                        <small>
+                                                            <ol id="contact-rules-toggle">
+                                                                <li class="hide-sm">
+                                                                    A mobile phone number is required for resetting passwords,
+                                                                    and to receive one-time pass-codes for high-risk transactions.
+                                                                </li>
+                                                                <li>
+                                                                    A valid email address is required for account alerts and other
+                                                                    important account information
+                                                                </li>
+                                                            </ol>
+                                                        </small>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -265,18 +330,23 @@
                 </div>
             </div>
         </footer>
-        <script src="../scripts/Validator.js"></script>
+        <script src="../scripts/Validator.min.js"></script>
         <script>
             var validator = new Validator(document.querySelector('#main-form'));
-            function togglePages(e, p1, p2) {
+            function togglePages(p1, p2, validate) {
                 p1 = document.querySelector('#' + p1);
                 p2 = document.querySelector('#' + p2);
-                validator.validateNodeList(p1.querySelectorAll('[data-validate]'), {
-                    then: function () {
-                        p1.style.setProperty('display', 'none', 'important');
-                        p2.style.setProperty('display', 'block', 'important');
-                    }
-                });
+                var f = function () {
+                    p1.style.setProperty('display', 'none', 'important');
+                    p2.style.setProperty('display', 'block', 'important');
+                };
+                if (validate === undefined || validate) {
+                    validator.validateNodeList(p1.querySelectorAll('[data-validate]'), {
+                        then: f
+                    });
+                } else {
+                    f();
+                }
             }
         </script>
     </body>
