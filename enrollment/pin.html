@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-xs-12 align-toggle">
-                                            <div class="input-container">
+                                            <div class="input-container max-width">
                                                 <input type="password" name="pin" id="pin" class="form-control"
                                                     data-validate="required,number"
                                                     data-error-class="error-message"
@@ -113,18 +113,17 @@
                 </div>
             </div>
         </footer>
-        <script src="../scripts/main.js"></script>
+        <script src="../scripts/Validator.min.js"></script>
         <script>
             var form = document.getElementById('main-form');
-            console.log(window.location.search);
-            Validator(form, {
-                then: function () {
+            var validator = new Validator(form, {
+                then: function (f) {
                     ////FOR ILLUSTRATION PURPOSES WILL BE DONE BY SERVER
                     if (!window.location.search.includes('invalid')) {
                         console.log(window.location);
                         window.location = window.location.origin + '/mockups/enrollment/account_number.html?invalid'
                     } else {
-                        form.submit();
+                        f.submit();
                     }
                 }
             });

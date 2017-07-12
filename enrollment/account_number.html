@@ -8,7 +8,7 @@
 		<!--fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" href="../styles/styles.css">
-	</head>
+    </head>
 	<body>
 		<header>
 			<a href="https://www.americafirst.com">
@@ -37,7 +37,7 @@
 									</div>
 									<div class="row">
 										<div class="col-xs-12 align-toggle">
-											<div class="input-container">
+											<div class="input-container max-width">
 												<input
 													type="text"
 													name="account-number"
@@ -118,18 +118,22 @@
 				</div>
 			</div>
 		</footer>
-		<script src="../scripts/main.js"></script>
+        <script src="../scripts/Validator.min.js"></script>
 		<script>
             var form = document.getElementById('main-form');
-			Validator(form, {
-			    then: function () {
-                    ////FOR ILLUSTRATION PURPOSES WILL BE DONE BY SERVER
+            var validator = new Validator(form, {
+                ////FOR ILLUSTRATION PURPOSES WILL BE DONE BY SERVER
+			    then: function (f) {
                     if (window.location.search.includes('invalid')) {
                         window.location = window.location.origin + '/mockups/enrollment/pin.html?invalid'
+                    } else {
+                        f.submit();
                     }
+
                 }
             });
 
+            ////FOR ILLUSTRATION PURPOSES WILL BE DONE BY SERVER
             if (window.location.search.includes('invalid')) {
                 document.querySelector('.alert').style.display = '';
             }

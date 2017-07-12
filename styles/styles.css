@@ -1,4 +1,3 @@
-
 :root {
     --header-color: #00548E;
     --footer-color: #1E1E23;
@@ -109,8 +108,10 @@ footer .lazer {
     margin-bottom: 40px;
 }
 .main-content form .input-container {
-    max-width: 500px;
     margin: 0 auto 20px;
+}
+.main-container form .input-container.max-width {
+    max-width: 500px;
 }
 .main-container form .input-container.fluid {
     max-width: none;
@@ -136,7 +137,7 @@ footer .lazer {
         margin: 0;
     }
 }
-.main-content form .btn-group-container button {
+.main-content form .btn-group-container button, .main-content form .btn-group-container a {
     max-width: 150px;
     min-width: 75px;
 }
@@ -209,39 +210,11 @@ a.emphasize-link > .glyphicon {
         text-align: left;
     }
 }
-
 .thumbnail-group-container img.thumbnail {
     width: 100%;
 }
 .thumbnail.active {
     background-color: skyblue;
-}
-
-#phrase-valid {
-    position: absolute;
-    top: 4px;
-    right: 18px;
-    height: 25px;
-    width: 40px;
-    background-color: #FFF;
-    /*border-radius: 10px 10px 10px 10px;*/
-    line-height: 25px;
-    /*box-shadow: -2px 0 4px #7b7b7b, 2px 0 4px #7b7b7b;*/
-}
-#phrase-valid.valid {
-    font-size: 22px;
-    font-weight: 600;
-    color: rgb(50, 205, 50);
-}
-#phrase-valid.invalid {
-    font-size: 18px;
-    font-weight: 500;
-    color: rgb(255, 0, 0);
-}
-#phrase-valid.error {
-    font-size: 30px;
-    font-weight: 900;
-    color: red;
 }
 
 span.error-message {
@@ -253,4 +226,17 @@ span.error-message {
 }
 .error-input {
     box-shadow: inset 1px 1px 0 red, inset -1px -1px 0 red !important;
+}
+
+.tooltip-span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: #ff8d18;
+
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+    text-align: center;
 }

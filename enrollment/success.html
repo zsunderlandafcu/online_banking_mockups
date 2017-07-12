@@ -18,47 +18,25 @@
 		<section class="main-container container">
 			<div class="main-content">
 				<div class="page-header">
-					<h1>Security Image & Phrase</h1>
+					<h1>Enrollment Success</h1>
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-md-9">
 						<div class="row focus-container">
 							<div class="col-xs-12 col-md-7 form-container">
-								<form action="success.html" id="main-form">
-									<div class="row thumbnail-group-container">
-										<div class="col-xs-6 col-xs-offset-3">
-											<img src="../images/arrows.png" alt="arrows" class="thumbnail">
-										</div>
-									</div>
+								<form action="enroll_device.html">
 									<div class="row">
 										<div class="col-xs-12 align-toggle primary-lbl">
-											<label for="phrase">Phrase</label>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 align-toggle">
-											<div class="input-container max-width">
-												<input type="text" name="phrase" id="phrase" class="form-control"
-													data-validate="required;regex:^[0-9a-zA-z ]{6,30}$"
-													data-error-message="Valid phrase must be 6-30 characters in length and consist of letters, numbers, and/or spaces">
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 secondary-lbl">
 											<p>
-												Must be 6-30 characters including only letters, numbers and spaces
+												Congratulations, enrollment is complete.
 											</p>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-xs-12 col-md-9">
 											<div class="btn-group-container row">
-												<div class="col-xs-6 btn-container">
-													<button class="btn btn-success">Update</button>
-												</div>
-												<div class="col-xs-6 btn-container">
-													<button class="btn btn-default">Cancel</button>
+												<div class="col-xs-12 btn-container">
+													<a href="#" class="btn btn-success">Login</a>
 												</div>
 											</div>
 										</div>
@@ -121,13 +99,7 @@
 				</div>
 			</div>
 		</footer>
-		<script src="../scripts/Validator.min.js"></script>
 		<script>
-			var validation = new Validator(document.querySelector('#main-form'), {
-			    delimiters: {
-			        func: ';'
-				}
-			});
 
 		</script>
 	</body>

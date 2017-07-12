@@ -26,10 +26,10 @@
                             <div class="col-xs-12 form-container">
                                 <form action="online_statements.html" id="main-form"
                                     data-error-message="Please provide an answer."
-                                    data-match-error-message="Your answers do not match."
+                                    data-error-message-match="Your answers do not match."
                                     data-error-class="error-message"
                                     data-error-input-class="error-input">
-                                    <div class="row space-out">
+                                    <div class="row space-out" id="question-part-1">
                                         <div class="col-xs-12">
                                             <div class="row">
                                                 <div class="col-xs-12 align-toggle primary-lbl">
@@ -38,7 +38,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-xs-12 align-toggle">
-                                                    <div class="input-container fluid">
+                                                    <div class="input-container max-width fluid">
                                                         <select name="question-1" id="question-1" class="form-control"
                                                             data-validate="required,vals:!0"
                                                             data-error-message="Please select a question.">
@@ -56,7 +56,7 @@
                                                     <div class="primary-lbl">
                                                         <label for="answer-1">Enter Answer</label>
                                                     </div>
-                                                    <div class="input-container">
+                                                    <div class="input-container max-width">
                                                         <input type="text" name="answer-1" id="answer-1" class="form-control"
                                                            data-validate="required">
                                                     </div>
@@ -65,15 +65,27 @@
                                                     <div class="primary-lbl">
                                                         <label for="answer-1-confirm">Confirm Answer</label>
                                                     </div>
-                                                    <div class="input-container">
+                                                    <div class="input-container max-width">
                                                         <input type="text" name="answer-1-confirm" id="answer-1-confirm" class="form-control"
                                                            data-validate="required,match:answer-1">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-xs-12 col-md-9 hidden-md hidden-lg" id="question-1-nav">
+                                            <div class="btn-group-container row">
+                                                <div class="col-xs-6 btn-container">
+                                                    <button type="button"
+                                                        onclick="togglePages(event, 'question-part-1', 'question-part-2')"
+                                                        class="btn btn-success">Next</button>
+                                                </div>
+                                                <div class="col-xs-6 btn-container">
+                                                    <button type="button" class="btn btn-default">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="row space-out">
+                                    <div class="row space-out hidden-sm hidden-xs" id="question-part-2">
                                         <div class="col-xs-12">
                                             <div class="row">
                                                 <div class="col-xs-12 align-toggle primary-lbl">
@@ -82,10 +94,10 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-xs-12 align-toggle">
-                                                    <div class="input-container fluid">
+                                                    <div class="input-container max-width fluid">
                                                         <select name="question-2" id="question-2" class="form-control"
                                                             data-validate="required,vals:!0"
-                                                                data-error-message="Please select a question.">
+                                                            data-error-message="Please select a question.">
                                                             <option value="0" selected>Please select a question</option>
                                                             <option value="1">Mother's maiden name</option>
                                                             <option value="2">The name of your first pet</option>
@@ -100,7 +112,7 @@
                                                     <div class="primary-lbl">
                                                         <label for="answer-2">Enter Answer</label>
                                                     </div>
-                                                    <div class="input-container">
+                                                    <div class="input-container max-width">
                                                         <input type="text" name="answer-2" id="answer-2" class="form-control"
                                                            data-validate="required">
                                                     </div>
@@ -109,15 +121,27 @@
                                                     <div class="primary-lbl">
                                                         <label for="answer-2-confirm">Confirm Answer</label>
                                                     </div>
-                                                    <div class="input-container">
+                                                    <div class="input-container max-width">
                                                         <input type="text" name="answer-2-confirm" id="answer-2-confirm" class="form-control"
                                                            data-validate="required,match:answer-2">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-xs-12 col-md-9 hidden-md hidden-lg" id="question-2-nav">
+                                            <div class="btn-group-container row">
+                                                <div class="col-xs-6 btn-container">
+                                                    <button type="button"
+                                                            onclick="togglePages(event, 'question-part-2', 'question-part-3')"
+                                                            class="btn btn-success">Next</button>
+                                                </div>
+                                                <div class="col-xs-6 btn-container">
+                                                    <button type="button" class="btn btn-default">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="row space-out">
+                                    <div class="row space-out hidden-sm hidden-xs" id="question-part-3">
                                         <div class="col-xs-12">
                                             <div class="row">
                                                 <div class="col-xs-12 align-toggle primary-lbl">
@@ -126,10 +150,10 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-xs-12 align-toggle">
-                                                    <div class="input-container fluid">
+                                                    <div class="input-container max-width fluid">
                                                         <select name="question-3" id="question-3" class="form-control"
                                                             data-validate="required,vals:!0"
-                                                                data-error-message="Please select a question.">
+                                                            data-error-message="Please select a question.">
                                                             <option value="0" selected>Please select a question</option>
                                                             <option value="1">Mother's maiden name</option>
                                                             <option value="2">The name of your first pet</option>
@@ -144,7 +168,7 @@
                                                     <div class="primary-lbl">
                                                         <label for="answer-3">Enter Answer</label>
                                                     </div>
-                                                    <div class="input-container">
+                                                    <div class="input-container max-width">
                                                         <input type="text" name="answer-3" id="answer-3" class="form-control"
                                                            data-validate="required">
                                                     </div>
@@ -153,22 +177,21 @@
                                                     <div class="primary-lbl">
                                                         <label for="answer-3-confirm">Confirm Answer</label>
                                                     </div>
-                                                    <div class="input-container">
+                                                    <div class="input-container max-width">
                                                         <input type="text" name="answer-3-confirm" id="answer-3-confirm" class="form-control"
                                                            data-validate="required,match:answer-3">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-xs-12 col-md-9">
                                             <div class="btn-group-container row">
                                                 <div class="col-xs-6 btn-container">
-                                                    <button class="btn btn-success">Next</button>
+                                                    <button type="submit"
+                                                        class="btn btn-success">Next</button>
                                                 </div>
                                                 <div class="col-xs-6 btn-container">
-                                                    <button class="btn btn-default">Cancel</button>
+                                                    <button type="button" class="btn btn-default">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -205,10 +228,19 @@
                 </div>
             </div>
         </footer>
-        <script src="../scripts/main.js"></script>
+        <script src="../scripts/Validator.min.js"></script>
         <script>
-            var form = document.querySelector('#main-form');
-            Validator(form);
+            var validator = new Validator(document.querySelector('#main-form'));
+            function togglePages(e, p1, p2) {
+                p1 = document.querySelector('#' + p1);
+                p2 = document.querySelector('#' + p2);
+                validator.validateNodeList(p1.querySelectorAll('[data-validate]'), {
+                    then: function () {
+                        p1.style.setProperty('display', 'none', 'important');
+                        p2.style.setProperty('display', 'block', 'important');
+                    }
+                });
+            }
         </script>
     </body>
 </html>
