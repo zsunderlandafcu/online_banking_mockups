@@ -120,7 +120,6 @@
                 then: function (f) {
                     ////FOR ILLUSTRATION PURPOSES WILL BE DONE BY SERVER
                     if (!window.location.search.includes('invalid')) {
-                        console.log(window.location);
                         window.location = window.location.origin + '/mockups/enrollment/account_number.html?invalid'
                     } else {
                         f.submit();

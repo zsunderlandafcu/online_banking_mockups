@@ -7,41 +7,63 @@
 			  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<!--fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-		<link rel="stylesheet" href="../styles/styles.css">
-	</head>
+		<link rel="stylesheet" href="../../styles/styles.css">
+    </head>
 	<body>
 		<header>
 			<a href="https://www.americafirst.com">
-				<img src="../images/logo.png" alt="America First Credit Union" class="logo"/>
+				<img src="../../images/logo.png" alt="America First Credit Union" class="logo"/>
 			</a>
 		</header>
 		<section class="main-container container">
 			<div class="main-content">
 				<div class="page-header">
-					<h1>Device Enrollment</h1>
+					<h1>Online Banking Login</h1>
 				</div>
 				<div class="row">
+					<div class="alert alert-danger" role="alert" style="display:none;">
+						<strong>Oops!</strong> Invalid user ID or password. Please try again.
+					</div>
 					<div class="col-xs-12 col-md-9">
 						<div class="row focus-container">
 							<div class="col-xs-12 col-md-7 form-container">
-								<form action="security_image.html">
+								<form action="password.html" id="main-form"
+									  data-error-class="error-message"
+									  data-error-input-class="error-input">
 									<div class="row">
 										<div class="col-xs-12 align-toggle primary-lbl">
-											<p>
-												Would you like to enroll this device in online banking?
-											</p>
+											<label for="user_id">Enter  User ID</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 align-toggle">
+											<div class="input-container max-width">
+												<input
+													type="text" name="user_id" id="user_id" class="form-control form-control-danger"
+													data-validate="required"
+													data-error-message="Please enter account number.">
+											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-xs-12 col-md-9">
 											<div class="btn-group-container row">
 												<div class="col-xs-6 btn-container">
-													<button type="submit" class="btn btn-success">Yes</button>
+													<button type="submit" class="btn btn-success">Next</button>
 												</div>
 												<div class="col-xs-6 btn-container">
-													<a href="security_image.html" class="btn btn-default">No</a>
+													<button type="button" class="btn btn-default">Cancel</button>
 												</div>
 											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 align-toggle">
+											<p>
+												<a href="../recovery/forgot_password.html">Forgot User ID or Password?</a>
+												<br>
+												Need other assistance? <a href="#">Contact us!</a>
+											</p>
 										</div>
 									</div>
 								</form>
@@ -81,14 +103,14 @@
 			<div class="row">
 				<div class="col-xs-12 logo-container">
 					<div class="lazer"></div>
-					<img src="../images/eagle-inverse.png" alt="America First Credit Union" class="logo">
+					<img src="../../images/eagle-inverse.png" alt="America First Credit Union" class="logo">
 					<div class="lazer"></div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-md-3 img-container">
-					<img src="../images/ehl.png" alt="Equal Housing Lender">
-					<img src="../images/ncua.png" alt="NCUA">
+					<img src="../../images/ehl.png" alt="Equal Housing Lender">
+					<img src="../../images/ncua.png" alt="NCUA">
 				</div>
 				<div class="col-xs-12 col-md-8 fine-print">
 					<p>
@@ -102,7 +124,25 @@
 				</div>
 			</div>
 		</footer>
+        <script src="../../scripts/Validator.min.js"></script>
 		<script>
+            var form = document.getElementById('main-form');
+            var validator = new Validator(form, {
+                ////FOR ILLUSTRATION PURPOSES WILL BE DONE BY SERVER
+			    then: function (f) {
+                    if (window.location.search.includes('invalid')) {
+                        window.location = window.location.origin + '/mockups/authentication/password.html?invalid'
+                    } else {
+                        f.submit();
+                    }
+
+                }
+            });
+
+            ////FOR ILLUSTRATION PURPOSES WILL BE DONE BY SERVER
+            if (window.location.search.includes('invalid')) {
+                document.querySelector('.alert').style.display = '';
+            }
 
 		</script>
 	</body>

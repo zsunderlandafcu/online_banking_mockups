@@ -108,62 +108,62 @@ footer .lazer {
 .row.space-out {
     margin-bottom: 40px;
 }
-.main-content form .input-container {
+.main-content .form-container .input-container {
     margin: 0 auto 20px;
 }
-.main-container form .input-container.max-width {
+.main-container .form-container .input-container.max-width {
     max-width: 500px;
 }
-.main-container form .input-container.fluid {
+.main-container .form-container .input-container.fluid {
     max-width: none;
 }
 @media (min-width: 992px) {
-    .main-content form .input-container {
+    .main-content .form-container .input-container {
         margin: 0 0 12px;
     }
 }
-.main-content form .btn-group-container {
+.main-content .form-container .btn-group-container {
     padding: 20px 0;
     text-align: center;
     max-width: 500px;
 }
 @media (min-width: 632px) {
-    .main-content form .btn-group-container {
+    .main-content .form-container .btn-group-container {
         margin: 0 auto;
     }
 }
 @media (min-width: 992px) {
-    .main-content form .btn-group-container {
+    .main-content .form-container .btn-group-container {
         text-align: left;
         margin: 0;
     }
 }
-.main-content form .btn-group-container button, .main-content form .btn-group-container a {
+.main-content .form-container .btn-group-container button, .main-content .form-container .btn-group-container a {
     max-width: 150px;
 }
-.main-content form .btn-group-container button:last-child {
+.main-content .form-container .btn-group-container button:last-child {
     margin: 0;
 }
-.main-container form .stacked-links div:not(:last-child){
+.main-container .form-container .stacked-links div:not(:last-child){
     margin-bottom: 15px;
 }
-.main-container form .input-details .col-xs-12 {
+.main-container .form-container .input-details .col-xs-12 {
     padding: 15px 10% 0;
     text-align: center;
 }
 
 @media (min-width: 992px) {
-    .main-container form .input-details .col-xs-12 {
+    .main-container .form-container .input-details .col-xs-12 {
         padding: 15px 0 0 5%;
         text-align: left;
     }
 }
-.main-content form .primary-lbl > *{
+.main-content .form-container .primary-lbl > *{
     font-size: 24px;
     font-weight: 200;
     color: #666666;
 }
-.main-content form .secondary-lbl > *{
+.main-content .form-container .secondary-lbl > *{
     font-size: 16px;
     font-weight: 300;
     color: #8d8d8d;
@@ -184,6 +184,12 @@ label > sup.reference {
         box-shadow: -2px 0 4px #cbcbcb, 2px 0 4px #cbcbcb;
         padding: 60px 30px 35px;
     }
+}
+
+.focus-container .info {
+    font-size: 16px;
+    font-weight: 200;
+    color: #666666;
 }
 .common-links {
     padding: 20px 40px;

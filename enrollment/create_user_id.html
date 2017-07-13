@@ -8,7 +8,7 @@
 		<!--fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" href="../styles/styles.css">
-	</head>
+    </head>
 	<body>
 		<header>
 			<a href="https://www.americafirst.com">
@@ -18,53 +18,75 @@
 		<section class="main-container container">
 			<div class="main-content">
 				<div class="page-header">
-					<h1>Device Enrollment</h1>
+					<h1>Online Banking Enrollment</h1>
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-md-9">
 						<div class="row focus-container">
+							<div class="col-xs-12 info align-toggle">
+								<p>
+									A user ID replaces your account number when accessing your account online. To continue
+									using your account number, press skip.
+								</p>
+							</div>
 							<div class="col-xs-12 col-md-7 form-container">
-								<form action="security_image.html">
+								<form action="user_id_confirmation.html" id="main-form"
+									  data-error-class="error-message"
+									  data-error-input-class="error-input">
 									<div class="row">
 										<div class="col-xs-12 align-toggle primary-lbl">
-											<p>
-												Would you like to enroll this device in online banking?
-											</p>
+											<label for="account-number">Enter a Unique User ID</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 align-toggle">
+											<div class="input-container max-width">
+												<input
+													type="text"
+													name="account-number"
+													id="account-number"
+													class="form-control form-control-danger"
+													data-validate="required;regex~^[a-zA-Z0-9!#$&()-/:?@_' ]{4,32}$;asyncUniqueUID"
+													data-error-message="Please enter a user ID."
+													data-error-message-regex="User ID does not meet requirements."
+													data-error-message-asyncuniqueuid="User ID is not unique.">
+											</div>
+										</div>
+									</div>
+									<div class="row hidden-md hidden-lg">
+										<div class="col-xs-12 col-md-5">
+											<ul>
+												<li>4-32 characters</li>
+												<li>Must contain at least one letter or special character</li>
+												<li><b><i class="text-uppercase">Not</i></b> case sensitive.</li>
+											</ul>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-xs-12 col-md-9">
 											<div class="btn-group-container row">
 												<div class="col-xs-6 btn-container">
-													<button type="submit" class="btn btn-success">Yes</button>
+													<button type="submit" class="btn btn-success">Next</button>
 												</div>
 												<div class="col-xs-6 btn-container">
-													<a href="security_image.html" class="btn btn-default">No</a>
+													<a href="challenge_questions.html" class="btn btn-default">Skip</a>
 												</div>
 											</div>
 										</div>
 									</div>
+									<div class="row">
+										<div class="col-xs-12 align-toggle">
+											Need assistance? <a href="#">Contact us.</a>
+										</div>
+									</div>
 								</form>
 							</div>
-							<div class="hidden-xs hidden-sm col-md-5 common-links">
-								<div class="row">
-									<a href="#" class="emphasize-link">
-										<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-										Apply for a loan
-									</a>
-								</div>
-								<div class="row">
-									<a href="#" class="emphasize-link">
-										<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-										Find a location
-									</a>
-								</div>
-								<div class="row">
-									<a href="#" class="emphasize-link">
-										<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
-										Contact us
-									</a>
-								</div>
+							<div class="hidden-xs hidden-sm col-xs-12 col-md-5">
+								<ul>
+									<li>4-32 characters</li>
+									<li>Must contain at least one letter or special character</li>
+									<li><b><i class="text-uppercase">Not</i></b> case sensitive.</li>
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -102,7 +124,24 @@
 				</div>
 			</div>
 		</footer>
+        <script src="../scripts/Validator.min.js"></script>
 		<script>
+            var form = document.getElementById('main-form');
+            var validator = new Validator(form, {
+				delimiters: {
+			        func: ';',
+					parameters: '~'
+				}
+            });
+            validator.tests['text']['asyncUniqueUID'] = function (el) {
+				var id = el.value;
+				// perform async request to validate ID is unique
+				var currentUIDs = ['test', 'test1', 'myusername', 'fiserv'];
+				for (var i in currentUIDs) {
+				    if (currentUIDs[i] === id) return false;
+				}
+				return true;
+            };
 
 		</script>
 	</body>
