@@ -169,6 +169,17 @@ footer .lazer {
     color: #8d8d8d;
     text-align: center;
 }
+.main-content .form-container .unformatted-lbl > *{
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    margin-bottom: 20px;
+}
+.main-content .form-container label.checkbox-lbl {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
 label > sup.reference {
     font-size: small;
     font-style: italic;

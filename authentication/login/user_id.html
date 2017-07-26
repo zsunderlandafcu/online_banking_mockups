@@ -21,8 +21,14 @@
 					<h1>Online Banking Login</h1>
 				</div>
 				<div class="row">
-					<div class="alert alert-danger" role="alert" style="display:none;">
+					<div class="alert alert-danger" id="invalid-alert" role="alert" style="display:none;">
 						<strong>Oops!</strong> Invalid user ID or password. Please try again.
+					</div>
+					<div class="alert alert-success" id="logout-alert" role="alert" style="display:none;">
+						You are now logged out.
+					</div>
+					<div class="alert alert-warning" id="timeout-alert" role="alert" style="display:none;">
+						<strong>Session timeout.</strong> You have been logged out due to inactivity.
 					</div>
 					<div class="col-xs-12 col-md-9">
 						<div class="row focus-container">
@@ -130,8 +136,8 @@
             var validator = new Validator(form, {
                 ////FOR ILLUSTRATION PURPOSES WILL BE DONE BY SERVER
 			    then: function (f) {
-                    if (window.location.search.includes('invalid')) {
-                        window.location = window.location.origin + '/mockups/authentication/password.html?invalid'
+                    if (location.search.includes('invalid')) {
+                        location = location.origin + '/mockups/authentication/password.html?invalid'
                     } else {
                         f.submit();
                     }
@@ -140,10 +146,15 @@
             });
 
             ////FOR ILLUSTRATION PURPOSES WILL BE DONE BY SERVER
-            if (window.location.search.includes('invalid')) {
-                document.querySelector('.alert').style.display = '';
+            if (location.search.includes('invalid')) {
+                document.getElementById('invalid-alert').style.display = '';
             }
-
+            if (location.search.includes('logout')) {
+                document.getElementById('logout-alert').style.display = '';
+			}
+            if (location.search.includes('timeout')) {
+                document.getElementById('timeout-alert').style.display = '';
+			}
 		</script>
 	</body>
 </html>
